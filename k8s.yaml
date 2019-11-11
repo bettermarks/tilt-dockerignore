@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ignore-examples-service-a
+spec:
+  selector:
+    matchLabels:
+      app: ignore-examples-service-a
+  template:
+    metadata:
+      labels:
+        app: ignore-examples-service-a
+    spec:
+      containers:
+      - name: ignore-examples-service-a
+        image: ignore-examples-service-a
+        ports:
+        - containerPort: 8101
+          name: http
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ignore-examples-service-b
+spec:
+  selector:
+    matchLabels:
+      app: ignore-examples-service-b
+  template:
+    metadata:
+      labels:
+        app: ignore-examples-service-b
+    spec:
+      containers:
+      - name: ignore-examples-service-b
+        image: ignore-examples-service-b
+        ports:
+        - containerPort: 8102
+          name: http
