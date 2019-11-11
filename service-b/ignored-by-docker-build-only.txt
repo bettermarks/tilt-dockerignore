@@ -1,0 +1,1 @@
+I should be ignored because the docker_build for service B has an only= param!
