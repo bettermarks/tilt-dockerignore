@@ -1,14 +1,7 @@
 
-docker_build('ignore-examples-service-a', './service-a', ignore=[
-  'ignored-by-docker-build-ignore.txt',
-])
-docker_build('ignore-examples-service-b', './service-b', only=[
-  'index.html',
-  'not-ignored.txt',
-])
+docker_build('tilt-dockerignore', '.')
 
-watch_file('tiltfile-deps')
 k8s_yaml('./k8s.yaml')
+watch_file('.dockerignore')
 
-k8s_resource('ignore-examples-service-a', port_forwards=8101)
-k8s_resource('ignore-examples-service-b', port_forwards=8102)
+k8s_resource('tilt-dockerignore', port_forwards=8101)

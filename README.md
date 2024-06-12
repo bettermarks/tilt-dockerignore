@@ -1,13 +1,8 @@
-# ignore-examples
+# tilt-dockerignore
 
-Examples of using Tilt configs to ignore files
+Examples for dockerignore including glob pattern
 
-Demonstrates how Tilt watches and ignores files with
-- `.tiltignore`
-- `.dockerignore`
-- `docker_build(ignore=...)`
-- `docker_build(only=...)`
-- `watch_file`
+Demonstrates how Tilt is failing to ignore folders with `.dockerignore`
 
 To try it, first install [Tilt](https://tilt.dev) and run
 
@@ -15,10 +10,13 @@ To try it, first install [Tilt](https://tilt.dev) and run
 tilt up
 ```
 
-Then, try editing the files and see which servers reload.
+- We want to ignore everything except a specific folder and containing files
+ - The `**` pattern will ignore all files and directories
+ - We use the `!` pattern to include specific files
 
-For a more detailed explanation, see
-[Debugging File Changes: Rebuilds and Ignores](https://docs.tilt.dev/file_changes.html)
+When checking the output from `ls`:
+- `include-by*` files are successfully included
+- `ignore-me` is included as an empty folder 
 
 ## License
 

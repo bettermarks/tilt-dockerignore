@@ -1,39 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: ignore-examples-service-a
+  name: tilt-dockerignore
 spec:
   selector:
     matchLabels:
-      app: ignore-examples-service-a
+      app: tilt-dockerignore
   template:
     metadata:
       labels:
-        app: ignore-examples-service-a
+        app: tilt-dockerignore
     spec:
       containers:
-      - name: ignore-examples-service-a
-        image: ignore-examples-service-a
+      - name: tilt-dockerignore
+        image: tilt-dockerignore
         ports:
         - containerPort: 8101
-          name: http
----
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: ignore-examples-service-b
-spec:
-  selector:
-    matchLabels:
-      app: ignore-examples-service-b
-  template:
-    metadata:
-      labels:
-        app: ignore-examples-service-b
-    spec:
-      containers:
-      - name: ignore-examples-service-b
-        image: ignore-examples-service-b
-        ports:
-        - containerPort: 8102
           name: http
